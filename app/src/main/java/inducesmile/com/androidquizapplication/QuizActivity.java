@@ -109,21 +109,34 @@ public class QuizActivity extends ActionBarActivity {
     }
 
     public void send(View view) {
+        String selection;
+        if(radioGroup.getCheckedRadioButtonId()!=-1){
+            int id= radioGroup.getCheckedRadioButtonId();
+            View radioButton = radioGroup.findViewById(id);
+            int radioId = radioGroup.indexOfChild(radioButton);
+            RadioButton btn = (RadioButton) radioGroup.getChildAt(radioId);
+            selection = (String) btn.getText();
 
-        final String data = "poet=nazmul";
-        //Toast.makeText(getApplicationContext(), "ok", Toast.LENGTH_LONG).show();
-        StringRequest request = new StringRequest(Request.Method.GET, "http://192.168.1.112/api/post.php?" + data, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError volleyError) {
-                Toast.makeText(getApplicationContext(), volleyError.toString(), Toast.LENGTH_LONG).show();
-            }
-        });
-        AppController.getInstance().addToRequestQueue(request);
+            final String data = "poet="+selection;
+            //Toast.makeText(getApplicationContext(), "ok", Toast.LENGTH_LONG).show();
+            StringRequest request = new StringRequest(Request.Method.GET, "http://192.168.1.112/api/post.php?" + data, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError volleyError) {
+                    Toast.makeText(getApplicationContext(), volleyError.toString(), Toast.LENGTH_LONG).show();
+                }
+            });
+            AppController.getInstance().addToRequestQueue(request);
+
+        }
+        else{
+            selection="select one pls!";
+            Toast.makeText(getApplicationContext(),selection,Toast.LENGTH_LONG).show();
+        }
     }
 
     private void uncheckedRadioButton() {
