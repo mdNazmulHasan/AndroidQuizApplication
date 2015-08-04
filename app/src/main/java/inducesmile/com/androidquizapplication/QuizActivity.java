@@ -130,6 +130,7 @@ public class QuizActivity extends ActionBarActivity {
         optionOne.setChecked(false);
         optionTwo.setChecked(false);
         optionThree.setChecked(false);
+        //optionThree.setChecked(false);
 
     }
 
