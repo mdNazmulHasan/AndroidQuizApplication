@@ -56,7 +56,7 @@
         <RadioButton
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:id="@+id/radio3"
+            android:id="@+id/radio2"
             android:textSize="15sp"
             android:textColor="@color/black"
             android:text="@string/app_name"
@@ -66,30 +66,15 @@
         </RadioGroup>
 
     <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_width="160dp"
-        android:gravity="center"
-        android:id="@+id/nextquiz"
-        android:textColor="@color/white"
-        android:text="@string/next_questions"
-        android:background="@drawable/quizbutton"
-        android:layout_marginRight="10dp"
-        android:padding="5dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignBaseline="@+id/previousquiz"/>
-
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="160dp"
-        android:gravity="center"
-        android:id="@+id/previousquiz"
-        android:textColor="@color/white"
-        android:text="@string/previous_questions"
-        android:background="@drawable/quizbutton"
+        android:text="send"
+        android:onClick="send"
+        android:id="@+id/button2"
         android:layout_below="@+id/radioGroup"
-        android:layout_alignLeft="@+id/radioGroup"
-        android:padding="5dp"
-        android:layout_marginTop="20dp"
-        android:layout_alignStart="@+id/radioGroup" />
+        android:layout_alignRight="@+id/quiz_question"
+        android:layout_alignEnd="@+id/quiz_question"
+        android:layout_marginTop="91dp" />
+
 
 </RelativeLayout>
